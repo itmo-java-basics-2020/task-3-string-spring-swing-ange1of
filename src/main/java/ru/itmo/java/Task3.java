@@ -43,6 +43,9 @@ public class Task3 {
         int firstMax = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
 
+        int firstMin = Integer.MAX_VALUE;
+        int secondMin = Integer.MIN_VALUE;
+
         for (int value : inputArray) {
             if (value > firstMax) {
                 secondMax = firstMax;
@@ -50,9 +53,17 @@ public class Task3 {
             } else if (value > secondMax) {
                 secondMax = value;
             }
+
+            if (value < firstMin) {
+                secondMin = firstMin;
+                firstMin = value;
+            }
+            else if (value < secondMin) {
+                secondMin = value;
+            }
         }
 
-        return firstMax * secondMax;
+        return Math.max(firstMax * secondMax, firstMin * secondMin);
     }
 
     /**
